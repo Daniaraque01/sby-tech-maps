@@ -75,6 +75,35 @@ const Maps = () => {
             });
             graphicsLayer.add(polylineGraphic);
 
+            /**crear un polígono */
+
+            const polygon = {
+                type: "polygon",
+                rings: [
+                    [-55.702980, -8.269622], //Longitude, latitude Brazil
+                    [-48.499192, -1.456810], //Longitude, latitude Belem
+                    [-38.526836, -3.732923], //Longitude, latitude  Fortaleza
+                    [-34.878565, -8.058156],   //Longitude, latitude Recife
+                    [-38.502495, -12.984492]  //Longitude, latitude Salvadorr
+                ]
+            };
+
+            const simpleFillSymbol = {
+                type: "simple-fill",
+                color: [67, 5, 248],  // Orange, opacity 80%
+                outline: {
+                    color: [255, 255, 255],
+                    width: 1
+                }
+            };
+
+            const polygonGraphic = new Graphic({
+                geometry: polygon,
+                symbol: simpleFillSymbol,
+
+            });
+            graphicsLayer.add(polygonGraphic);
+
 
 
         }
