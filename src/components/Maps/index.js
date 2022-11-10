@@ -53,6 +53,29 @@ const Maps = () => {
             });
             graphicsLayer.add(pointGraphic);
 
+            /**crear una linea */
+
+            const polyline = {
+                type: "polyline",
+                paths: [
+                    [-82.366308, 23.116607], //Longitude, latitude  //Cuba   
+                    [40.417431, -3.703625], //Longitude, latitude //España 
+                    // [-118.808878330345, 34.0016642996246]  //Longitude, latitude
+                ]
+            };
+            const simpleLineSymbol = {
+                type: "simple-line",
+                color: [67, 5, 248], // Orange
+                width: 2
+            };
+
+            const polylineGraphic = new Graphic({
+                geometry: polyline,
+                symbol: simpleLineSymbol
+            });
+            graphicsLayer.add(polylineGraphic);
+
+
 
         }
     }, []);
