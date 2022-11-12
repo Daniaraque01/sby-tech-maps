@@ -1,5 +1,6 @@
 
 import Maps from './components/Maps';
+import Form from './components/Form';
 
 function App() {
   return (
@@ -7,7 +8,8 @@ function App() {
       <header className="App-header">
 
       </header>
-      <Maps />
+
+      <Form />
     </div>
   );
 }

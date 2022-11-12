@@ -1,8 +1,4 @@
-import Map from "@arcgis/core/Map";
-import esriConfig from "@arcgis/core/config.js";
 import React, { useRef, useEffect } from "react";
-import Bookmarks from '@arcgis/core/widgets/Bookmarks';
-import Expand from '@arcgis/core/widgets/Expand';
 import MapView from "@arcgis/core/views/MapView";
 import WebMap from "@arcgis/core/WebMap";
 import "./index.css";
@@ -10,8 +6,9 @@ import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
 import Graphic from "@arcgis/core/Graphic";
 
 
-const Maps = () => {
+const Maps = ({ point, polyline, polygon }) => {
 
+    console.log(point, "point")
     const mapDiv = useRef(null);
 
     useEffect(() => {
@@ -19,9 +16,11 @@ const Maps = () => {
             /**
              * Initialize application
              */
+
             const webmap = new WebMap({
                 basemap: "topo-vector"
             });
+
 
             /**crear un punto */
 
@@ -33,14 +32,14 @@ const Maps = () => {
             const graphicsLayer = new GraphicsLayer();
             webmap.add(graphicsLayer);
 
-            const point = { //Create a point
+            /*const point = { //Create a point
                 type: "point",
                 longitude: -70.680652, //Santiago
                 latitude: -33.426303,
-            };
+            };*/
             const simpleMarkerSymbol = {
                 type: "simple-marker",
-                color: [7, 25, 250],  // Orange
+                color: [7, 25, 250],  // blue
                 outline: {
                     color: [255, 255, 255], // White
                     width: 1
@@ -55,17 +54,16 @@ const Maps = () => {
 
             /**crear una linea */
 
-            const polyline = {
+            /*const polyline = {
                 type: "polyline",
                 paths: [
                     [-82.366308, 23.116607], //Longitude, latitude  //Cuba   
-                    [40.417431, -3.703625], //Longitude, latitude //España 
-                    // [-118.808878330345, 34.0016642996246]  //Longitude, latitude
+                    [-3.703625, 40.417431], //Longitude, latitude //España 
                 ]
-            };
+            };*/
             const simpleLineSymbol = {
                 type: "simple-line",
-                color: [67, 5, 248], // Orange
+                color: [7, 25, 250], // blue
                 width: 2
             };
 
@@ -77,7 +75,7 @@ const Maps = () => {
 
             /**crear un polígono */
 
-            const polygon = {
+            /*const polygon = {
                 type: "polygon",
                 rings: [
                     [-55.702980, -8.269622], //Longitude, latitude Brazil
@@ -86,11 +84,11 @@ const Maps = () => {
                     [-34.878565, -8.058156],   //Longitude, latitude Recife
                     [-38.502495, -12.984492]  //Longitude, latitude Salvadorr
                 ]
-            };
+            };*/
 
             const simpleFillSymbol = {
                 type: "simple-fill",
-                color: [67, 5, 248],  // Orange, opacity 80%
+                color: [7, 25, 250],  // blue
                 outline: {
                     color: [255, 255, 255],
                     width: 1
