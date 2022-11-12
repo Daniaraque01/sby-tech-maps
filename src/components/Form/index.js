@@ -5,6 +5,9 @@ import FormPolygon from "./FormPolygon";
 import FormLine from "./FormLine";
 import Button from 'react-bootstrap/Button';
 import Maps from "../Maps";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const FormOption = () => {
 
@@ -139,23 +142,28 @@ const FormOption = () => {
         console.log(e.target);
     }
     return (
+        <Container>
+            <Row>
+                <Col sm={4}>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Select onChange={handleChange} aria-label="Default select example">
+                            <option>Selecciona tu figura</option>
+                            <option value="1">Punto</option>
+                            <option value="2">Linea</option>
+                            <option value="3">Polígono</option>
+                        </Form.Select>
+                        {refresh ? null : figure}
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
+                    </Form>
+                </Col>
+                <Col sm={8}>
+                    {refresh ? <div></div> : <Maps point={point} polyline={line} polygon={polygon} />}
+                </Col>
+            </Row>
+        </Container>
 
-        <>
-            <Form onSubmit={handleSubmit}>
-                <Form.Select onChange={handleChange} aria-label="Default select example">
-                    <option>Selecciona tu figura</option>
-                    <option value="1">Punto</option>
-                    <option value="2">Linea</option>
-                    <option value="3">Polígono</option>
-                </Form.Select>
-                {figure}
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form>
-
-            {refresh ? <div></div> : <Maps point={point} polyline={line} polygon={polygon} />}
-        </>
     );
 }
 

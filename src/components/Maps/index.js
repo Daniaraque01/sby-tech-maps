@@ -26,17 +26,13 @@ const Maps = ({ point, polyline, polygon }) => {
 
             const view = new MapView({
                 container: mapDiv.current,
-                map: webmap
+                map: webmap,
+                zoom: 2,
             });
 
             const graphicsLayer = new GraphicsLayer();
             webmap.add(graphicsLayer);
 
-            /*const point = { //Create a point
-                type: "point",
-                longitude: -70.680652, //Santiago
-                latitude: -33.426303,
-            };*/
             const simpleMarkerSymbol = {
                 type: "simple-marker",
                 color: [7, 25, 250],  // blue
@@ -54,13 +50,6 @@ const Maps = ({ point, polyline, polygon }) => {
 
             /**crear una linea */
 
-            /*const polyline = {
-                type: "polyline",
-                paths: [
-                    [-82.366308, 23.116607], //Longitude, latitude  //Cuba   
-                    [-3.703625, 40.417431], //Longitude, latitude //España 
-                ]
-            };*/
             const simpleLineSymbol = {
                 type: "simple-line",
                 color: [7, 25, 250], // blue
@@ -75,16 +64,6 @@ const Maps = ({ point, polyline, polygon }) => {
 
             /**crear un polígono */
 
-            /*const polygon = {
-                type: "polygon",
-                rings: [
-                    [-55.702980, -8.269622], //Longitude, latitude Brazil
-                    [-48.499192, -1.456810], //Longitude, latitude Belem
-                    [-38.526836, -3.732923], //Longitude, latitude  Fortaleza
-                    [-34.878565, -8.058156],   //Longitude, latitude Recife
-                    [-38.502495, -12.984492]  //Longitude, latitude Salvadorr
-                ]
-            };*/
 
             const simpleFillSymbol = {
                 type: "simple-fill",
